@@ -216,7 +216,7 @@ module Guard
             if interactor && interactor.thread
               interactor.thread.raise(Interrupt)
             else
-              ::Guard.stop
+              Thread.new { ::Guard.stop }
             end
           end
         end
